@@ -1,0 +1,11 @@
+Source: android-compatible-env
+Section: unknown
+Priority: optional
+Maintainer: JingOS <maintainer@jingos.coim>
+Build-Depends: debhelper-compat (= 12)
+Standards-Version: 1.0.0
+
+Package: android-compatible-env
+Architecture: all
+Depends: ${misc:Depends}
+Description: Android Compatible Runtime

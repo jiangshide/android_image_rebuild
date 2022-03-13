@@ -1,0 +1,21 @@
+[Unit]
+Description=LXC Container: androidcompat
+# This pulls in apparmor, dev-setup, lxc-net
+After=plasma-plasmashell
+Documentation=man:lxc-start man:lxc
+
+[Service]
+Type=simple
+KillMode=mixed
+TimeoutStopSec=1s
+ExecStart=/usr/bin/lxc-start -P /opt/compatible/android/lxc -F -n androidcompat
+ExecStop=/usr/bin/lxc-stop -P /opt/compatible/android/lxc -n androidcompat
+# ExecStartPost=/usr/lib/lxc-%i/lxc-%i-ready
+# Environment=BOOTUP=serial
+# Environment=CONSOLETYPE=serial
+Delegate=yes
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
